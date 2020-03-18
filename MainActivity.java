@@ -1,5 +1,6 @@
 package com.example.geoquiz20;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private Button mCheatButton;
     private TextView mQuestionTextView;
+
 
     private Question[] mQuestionBank = new  Question[]{
             new Question(R.string.question_australia,true),
@@ -61,6 +64,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
+        });
+
+        mCheatButton = (Button)findViewById(R.id.cheat_button);
+        mCheatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,CheatActivity.class);
+                startActivity(intent);
+            }
         });
     }
 
